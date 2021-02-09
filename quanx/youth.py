@@ -22,6 +22,7 @@ cookies1 = {
   'YOUTH_WITHDRAWBODY': ''
 }
 cookies2 = {}
+cookies3 = {}
 
 COOKIELIST = [cookies1,]  # 多账号准备
 
