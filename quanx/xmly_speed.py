@@ -1021,6 +1021,19 @@ def user_info(cookies):
     except:
         print("网络请求异常,为避免GitHub action报错,直接跳过")
 
+def bark(title, content):
+    print("\n")
+    bark_token = BARK
+    if "BARK" in os.environ:
+        bark_token = os.environ["BARK"]
+    if not bark_token:
+        print("bark服务的bark_token未设置!!\n取消推送")
+        return
+    print("bark服务启动")
+    response = requests.get(
+        f"""https://api.day.app/{bark_token}/{title}/{content}""")
+    print(response.text)
+    
 def run():
     print(f"喜马拉雅极速版 (https://github.com/Zero-S1/xmly_speed/blob/master/xmly_speed.md ) ,欢迎打赏¯\(°_o)/¯")
     mins, date_stamp, _datatime, _notify_time = get_time()
@@ -1079,7 +1092,7 @@ def run():
             message += f"【连续签到】：{i[4]}/30\n"
             message += f"\n"
 
-        send(title=title, content=message)
+        bark(title=title, content=message)
 
 if __name__ == "__main__":
     run()
