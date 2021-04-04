@@ -40,8 +40,8 @@ if "AUTO_TAKE_OUT" in os.environ:
 devices = []
 notify_time = 23                            # 通知时间,24小时制,默认19
 XMLY_ACCUMULATE_TIME = 1                    # 希望刷时长的,此处置1,默认打开;关闭置0
-UserAgent = "Mozilla/5.0 (iPhone; CPU iPhone OS 13_4_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 iting/2.0.9 kdtunion_iting/1.0 iting(main)/2.0.9/ios_1"
-UserAgent2 = "ting_v2.0.9_c5(CFNetwork, iOS 13.4.1, iPhone8,1) Accept-Language: zh-Hans-US;q=1, en-US;q=0.9, zh-Hant-US;q=0.8, ja-JP;q=0.7"
+UserAgent = "User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 13_4_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 Accept-Language: zh-cn"
+
 # 非iOS设备的需要的自行修改,自己抓包 与cookie形式类似
 
 def str2dict(str_cookie):
@@ -532,7 +532,7 @@ def ad_score(cookies, businessType, taskId):
 def bubble(cookies):
     print("\n【bubble】")
     headers = {
-        'User-Agent': UserAgent2,
+        'User-Agent': UserAgent,
         'Content-Type': 'application/json;charset=utf-8',
         'Host': 'm.ximalaya.com',
         'Origin': 'https://m.ximalaya.com',
